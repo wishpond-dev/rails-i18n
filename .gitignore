@@ -2,13 +2,12 @@
 Icon?
 ._*
 .project
-Gemfile.lock
 rails-i18n-*.gem
 *~
 *.sw[pno]
 doc
 log
-bin
 .idea
 .bundle
-
+.ruby-gemset
+.ruby-version

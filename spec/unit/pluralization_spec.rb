@@ -9,6 +9,7 @@ require 'support/pluralization_file'
 
 require 'unit/pluralization/ordinary'
 require 'unit/pluralization/other'
+require 'unit/pluralization/one_other'
 require 'unit/pluralization/one_with_zero_other'
 require 'unit/pluralization/one_upto_two_other'
 require 'unit/pluralization/one_two_other'
@@ -20,16 +21,16 @@ describe 'Pluralization rule for' do
 
   pluralizations_dir = File.join('rails', 'pluralization')
 
-  let(:file) do
+  let(:file) do |example|
     filename = File.join(pluralizations_dir, "#{example.metadata[:locale]}.rb")
     RailsI18n::Spec::PluralizationFile.new(filename)
   end
 
-  let(:rule) do
+  let(:rule) do |example|
     file.traverse_path(example.metadata[:locale], :i18n, :plural, :rule)
   end
 
-  let(:plural_keys) do
+  let(:plural_keys) do |example|
     file.traverse_path(example.metadata[:locale], :i18n, :plural, :keys)
   end
 
@@ -221,11 +222,6 @@ describe 'Pluralization rule for' do
     it_behaves_like 'other form language'
   end
 
-  describe 'Filipino', :locale => :fil do
-    it_behaves_like 'an ordinary pluralization rule'
-    it_behaves_like 'one(with zero)-other forms language'
-  end
-
   describe 'French', :locale => :fr do
     it_behaves_like 'an ordinary pluralization rule'
     it_behaves_like 'one(upto 2)-other forms language'
@@ -248,31 +244,6 @@ describe 'Pluralization rule for' do
 
   describe 'Hebrew', :locale => :he do
     it_behaves_like 'an ordinary pluralization rule'
-
-    it 'has "one", "two", "many" and "other" plural keys' do
-      plural_keys.size.should == 4
-      plural_keys.should include(:one, :two, :many, :other)
-    end
-
-    it "detects that 1 in category 'one'" do
-      rule.call(1).should == :one
-    end
-
-    it "detects that 2 in category 'two'" do
-      rule.call(2).should == :other
-    end
-
-    [10, 30, 70, 100, 130].each do |count|
-      it "detects that #{count} in category 'many'" do
-        rule.call(count).should == :other
-      end
-    end
-
-    [0, 1.2, 3.94, 8.2, 11, 12, 15, 19, 25, 27, 31, 52, 84, 99].each do |count|
-      it "detects that #{count} in category 'other'" do
-        rule.call(count).should == :other
-      end
-    end
   end
 
   describe 'Hindi', :locale => :hi do
@@ -282,7 +253,7 @@ describe 'Pluralization rule for' do
 
   describe 'Hungarian', :locale => :hu do
     it_behaves_like 'an ordinary pluralization rule'
-    it_behaves_like 'other form language'
+    it_behaves_like 'one-other forms language'
   end
 
   describe 'Odiya', :locale => :or do

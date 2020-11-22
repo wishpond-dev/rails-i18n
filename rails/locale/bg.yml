@@ -1,4 +1,9 @@
+---
 bg:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'имаше грешки: %{errors}'
   date:
     abbr_day_names:
     - нед
@@ -9,7 +14,7 @@ bg:
     - пет
     - съб
     abbr_month_names:
-    -
+    - 
     - ян.
     - фев.
     - март
@@ -31,11 +36,11 @@ bg:
     - петък
     - събота
     formats:
-      default: ! '%d.%m.%Y'
-      long: ! '%d %B %Y'
-      short: ! '%d %b'
+      default: "%d.%m.%Y"
+      long: "%d %B %Y"
+      short: "%d %b"
     month_names:
-    -
+    - 
     - януари
     - февруари
     - март
@@ -67,36 +72,36 @@ bg:
         one: почти 1 година
         other: почти %{count} години
       half_a_minute: половин минута
-      less_than_x_minutes:
-        one: по-малко от 1 минута
-        other: по-малко от %{count} минути
       less_than_x_seconds:
         one: по-малко от 1 секунда
         other: по-малко от %{count} секунди
+      less_than_x_minutes:
+        one: по-малко от 1 минута
+        other: по-малко от %{count} минути
       over_x_years:
         one: над 1 година
         other: над %{count} години
-      x_days:
-        one: 1 ден
-        other: ! '%{count} дни'
-      x_minutes:
-        one: 1 минута
-        other: ! '%{count} минути'
-      x_months:
-        one: 1 месец
-        other: ! '%{count} месеца'
       x_seconds:
         one: 1 секунда
-        other: ! '%{count} секунди'
+        other: "%{count} секунди"
+      x_minutes:
+        one: 1 минута
+        other: "%{count} минути"
+      x_days:
+        one: 1 ден
+        other: "%{count} дни"
+      x_months:
+        one: 1 месец
+        other: "%{count} месеца"
     prompts:
-      day: Ден
-      hour: Час
-      minute: Минута
-      month: Месец
       second: Секунда
+      minute: Минута
+      hour: Час
+      day: Ден
+      month: Месец
       year: Година
-  errors: &errors
-    format: ! '%{attribute} %{message}'
+  errors:
+    format: "%{attribute} %{message}"
     messages:
       accepted: трябва да се потвърди
       blank: не може да е без стойност
@@ -110,20 +115,19 @@ bg:
       inclusion: съдържа непредвидена стойност
       invalid: съдържа невярна стойност
       less_than: трябва да има стойност, по-малка от %{count}
-      less_than_or_equal_to: трябва да има стойност, по-голяма или равна на %{count}
+      less_than_or_equal_to: трябва да има стойност, по-малка или равна на %{count}
       not_a_number: не е число
       not_an_integer: не е цяло число
       odd: трябва да е четно
-      record_invalid: ! 'имаше грешки: %{errors}'
       taken: вече съществува
       too_long: е прекаленo дълго (не може да е повече от %{count} символа)
       too_short: е прекалено късо (не може да бъде по-малко от %{count} символа)
       wrong_length: е с грешна дължина (трябва да е с дължина, равна на %{count} символа)
     template:
-      body: ! 'Възникнаха проблеми със следните полета:'
+      body: 'Възникнаха проблеми със следните полета:'
       header:
-        one: ! '%{model}: записът е неуспешен заради 1 грешка'
-        other: ! '%{model}: записът е неуспешен заради %{count} грешки'
+        one: "%{model}: записът е неуспешен заради 1 грешка"
+        other: "%{model}: записът е неуспешен заради %{count} грешки"
   helpers:
     select:
       prompt: Моля отбележете
@@ -134,22 +138,22 @@ bg:
   number:
     currency:
       format:
-        delimiter: ! ' '
-        format: ! '%n %u'
+        delimiter: " "
+        format: "%n %u"
         precision: 2
-        separator: ! ','
+        separator: ","
         significant: false
         strip_insignificant_zeros: false
         unit: лв.
     format:
-      delimiter: ! ' '
+      delimiter: " "
       precision: 3
-      separator: ! ','
+      separator: ","
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           billion: милиарда
           million: милиона
@@ -163,7 +167,7 @@ bg:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           byte:
             one: Байт
@@ -180,20 +184,13 @@ bg:
         delimiter: ''
   support:
     array:
-      last_word_connector: ! ' и '
-      two_words_connector: ! ' и '
-      words_connector: ! ', '
+      last_word_connector: " и "
+      two_words_connector: " и "
+      words_connector: ", "
   time:
     am: преди обяд
     formats:
-      default: ! '%a, %d %b %Y, %H:%M:%S %z'
-      long: ! '%d %B %Y, %H:%M'
-      short: ! '%d %b, %H:%M'
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
     pm: следобед
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors

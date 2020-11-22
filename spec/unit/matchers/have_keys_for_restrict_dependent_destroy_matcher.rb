@@ -5,7 +5,7 @@ RSpec::Matchers.define :have_keys_for_restrict_dependent_destroy do
     return unless hash['errors']['messages']['restrict_dependent_destroy']
     return if hash['errors']['messages']['restrict_dependent_destroy'].kind_of?(String)
     h = hash['errors']['messages']['restrict_dependent_destroy'].clone
-    %w(one many).each do |key|
+    %w(has_one has_many).each do |key|
       unless h.delete(key)
         @missing_keys << @locale_file.locale_code + scope + '.errors.messages.restrict_dependent_destroy.' + key
       end
@@ -26,7 +26,7 @@ RSpec::Matchers.define :have_keys_for_restrict_dependent_destroy do
     @missing_keys.empty? && @redundant_keys.empty?
   end
 
-  failure_message_for_should do |filepath|
+  failure_message do |filepath|
     message = ''
     if @missing_keys.any?
       message << "expected #{filepath} to contain the following keys :\n- "

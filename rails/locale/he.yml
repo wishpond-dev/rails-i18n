@@ -1,4 +1,9 @@
+---
 he:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'האימות נכשל: %{errors}'
   date:
     abbr_day_names:
     - א
@@ -9,8 +14,8 @@ he:
     - ו
     - ש
     abbr_month_names:
-    -
-    - יאנ
+    - 
+    - ינו
     - פבר
     - מרץ
     - אפר
@@ -31,11 +36,11 @@ he:
     - שישי
     - שבת
     formats:
-      default: ! '%d-%m-%Y'
-      long: ! '%e ב%B, %Y'
-      short: ! '%e %b'
+      default: "%d-%m-%Y"
+      long: "%e ב%B, %Y"
+      short: "%e %b"
     month_names:
-    -
+    - 
     - ינואר
     - פברואר
     - מרץ
@@ -67,38 +72,38 @@ he:
         one: כמעט שנה
         other: כמעט %{count} שנים
       half_a_minute: חצי דקה
-      less_than_x_minutes:
-        one: פחות מדקה אחת
-        other: פחות מ- %{count} דקות
-        zero: פחות מדקה אחת
       less_than_x_seconds:
+        zero: פחות משניה אחת
         one: פחות משניה אחת
         other: פחות מ- %{count} שניות
-        zero: פחות משניה אחת
+      less_than_x_minutes:
+        zero: פחות מדקה אחת
+        one: פחות מדקה אחת
+        other: פחות מ- %{count} דקות
       over_x_years:
         one: מעל שנה אחת
         other: מעל %{count} שנים
-      x_days:
-        one: יום אחד
-        other: ! '%{count} ימים'
-      x_minutes:
-        one: דקה אחת
-        other: ! '%{count} דקות'
-      x_months:
-        one: חודש אחד
-        other: ! '%{count} חודשים'
       x_seconds:
         one: שניה אחת
-        other: ! '%{count} שניות'
+        other: "%{count} שניות"
+      x_minutes:
+        one: דקה אחת
+        other: "%{count} דקות"
+      x_days:
+        one: יום אחד
+        other: "%{count} ימים"
+      x_months:
+        one: חודש אחד
+        other: "%{count} חודשים"
     prompts:
-      day: יום
-      hour: שעה
-      minute: דקה
-      month: חודש
       second: שניות
+      minute: דקה
+      hour: שעה
+      day: יום
+      month: חודש
       year: שנה
-  errors: &errors
-    format: ! '%{attribute} %{message}'
+  errors:
+    format: "%{attribute} %{message}"
     messages:
       accepted: חייב באישור
       blank: לא יכול להיות ריק
@@ -116,42 +121,41 @@ he:
       not_a_number: חייב להיות מספר
       not_an_integer: חייב להיות מספר שלם
       odd: חייב להיות אי זוגי
-      record_invalid: ! 'האימות נכשל: %{errors}'
       taken: כבר בשימוש
-      too_long: "יותר מדי ארוך (לא יותר מ- %{count} תווים)"
-      too_short: "יותר מדי קצר (לא פחות  מ- %{count} תווים)"
-      wrong_length: "לא באורך הנכון (חייב להיות %{count} תווים)"
+      too_long: ארוך מדי (יותר מ- %{count} תווים)
+      too_short: קצר מדי (פחות מ- %{count} תווים)
+      wrong_length: לא באורך הנכון (חייב להיות %{count} תווים)
     template:
-      body: ! 'אנא בדוק את השדות הבאים:'
+      body: 'אנא בדוק את השדות הבאים:'
       header:
-        one: ! 'לא ניתן לשמור את ה%{model}: שגיאה אחת'
-        other: ! 'לא ניתן לשמור את ה%{model}: %{count} שגיאות.'
+        one: 'לא ניתן לשמור את ה%{model}: שגיאה אחת'
+        other: 'לא ניתן לשמור את ה%{model}: %{count} שגיאות.'
   helpers:
     select:
       prompt: נא לבחור
     submit:
-      create: ! '%{model} יצירת'
-      submit: ! '%{model} שמור'
-      update: ! '%{model} עדכון'
+      create: יצירת %{model}
+      submit: שמור %{model}
+      update: עדכון %{model}
   number:
     currency:
       format:
-        delimiter: ! ','
-        format: ! '%u %n'
+        delimiter: ","
+        format: "%n %u"
         precision: 2
-        separator: .
+        separator: "."
         significant: false
         strip_insignificant_zeros: false
-        unit: ₪
+        unit: "₪"
     format:
-      delimiter: ! ','
+      delimiter: ","
       precision: 3
-      separator: .
+      separator: "."
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           billion: מיליארד
           million: מיליון
@@ -165,7 +169,7 @@ he:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           byte:
             one: בייט
@@ -182,20 +186,13 @@ he:
         delimiter: ''
   support:
     array:
-      last_word_connector: ! ', את '
-      two_words_connector: ! ' את '
-      words_connector: ! ', '
+      last_word_connector: " ו"
+      two_words_connector: " ו"
+      words_connector: ", "
   time:
     am: am
     formats:
-      default: ! '%a %d %b %H:%M:%S %Z %Y'
-      long: ! '%d ב%B, %Y %H:%M'
-      short: ! '%d %b %H:%M'
+      default: "%a %d %b %H:%M:%S %Z %Y"
+      long: "%d ב%B, %Y %H:%M"
+      short: "%d %b %H:%M"
     pm: pm
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors

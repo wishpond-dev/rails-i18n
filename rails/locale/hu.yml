@@ -1,4 +1,9 @@
+---
 hu:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: Sikertelen validálás %{errors}
   date:
     abbr_day_names:
     - v.
@@ -9,7 +14,7 @@ hu:
     - p.
     - szo.
     abbr_month_names:
-    -
+    - 
     - jan.
     - febr.
     - márc.
@@ -31,11 +36,11 @@ hu:
     - péntek
     - szombat
     formats:
-      default: ! '%Y.%m.%d.'
-      long: ! '%Y. %B %e.'
-      short: ! '%b %e.'
+      default: "%Y.%m.%d."
+      long: "%Y. %B %e."
+      short: "%b %e."
     month_names:
-    -
+    - 
     - január
     - február
     - március
@@ -55,48 +60,48 @@ hu:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: kb 1 órája
-        other: kb %{count} órája
+        one: kb. 1 órája
+        other: kb. %{count} órája
       about_x_months:
-        one: kb 1 hónapja
-        other: kb %{count} hónapja
+        one: kb. 1 hónapja
+        other: kb. %{count} hónapja
       about_x_years:
-        one: kb 1 éve
-        other: kb %{count} éve
+        one: kb. 1 éve
+        other: kb. %{count} éve
       almost_x_years:
         one: majdnem 1 éve
         other: majdnem %{count} éve
       half_a_minute: fél perce
-      less_than_x_minutes:
-        one: kevesebb, mint 1 perce
-        other: kevesebb, mint %{count} perce
       less_than_x_seconds:
         one: kevesebb, mint 1 másodperce
         other: kevesebb, mint %{count} másodperce
+      less_than_x_minutes:
+        one: kevesebb, mint 1 perce
+        other: kevesebb, mint %{count} perce
       over_x_years:
         one: több, mint 1 éve
         other: több, mint %{count} éve
-      x_days:
-        one: 1 napja
-        other: ! '%{count} napja'
-      x_minutes:
-        one: 1 perce
-        other: ! '%{count} perce'
-      x_months:
-        one: 1 hónapja
-        other: ! '%{count} hónapja'
       x_seconds:
         one: 1 másodperce
-        other: ! '%{count} másodperce'
+        other: "%{count} másodperce"
+      x_minutes:
+        one: 1 perce
+        other: "%{count} perce"
+      x_days:
+        one: 1 napja
+        other: "%{count} napja"
+      x_months:
+        one: 1 hónapja
+        other: "%{count} hónapja"
     prompts:
-      day: Nap
-      hour: Óra
-      minute: Perc
-      month: Hónap
       second: Másodperc
+      minute: Perc
+      hour: Óra
+      day: Nap
+      month: Hónap
       year: Év
-  errors: &errors
-    format: ! '%{attribute} %{message}'
+  errors:
+    format: "%{attribute} %{message}"
     messages:
       accepted: nincs elfogadva
       blank: nincs megadva
@@ -114,48 +119,47 @@ hu:
       not_a_number: nem szám
       not_an_integer: egész számnak kell lennie
       odd: páratlan kell legyen
-      record_invalid: Sikertelen validálás %{errors}
       taken: már foglalt
       too_long: túl hosszú (nem lehet több %{count} karakternél)
       too_short: túl rövid (legalább %{count} karakter kell legyen)
       wrong_length: nem megfelelő hosszúságú (%{count} karakter szükséges)
     template:
-      body: ! 'Problémás mezők:'
+      body: 'Problémás mezők:'
       header:
-        one: ! '1 hiba miatt nem menthető a következő: %{model}'
-        other: ! '%{count} hiba miatt nem menthető a következő: %{model}'
+        one: '1 hiba miatt nem menthető a következő: %{model}'
+        other: "%{count} hiba miatt nem menthető a következő: %{model}"
   helpers:
     select:
       prompt: Válasszon
     submit:
       create: Új %{model}
-      submit: ! '%{model} Mentése'
-      update: ! '%{model} Módosítása'
+      submit: "%{model} mentése"
+      update: "%{model} módosítása"
   number:
     currency:
       format:
         delimiter: ''
-        format: ! '%n %u'
+        format: "%n %u"
         precision: 0
-        separator: ! ','
+        separator: ","
         significant: true
         strip_insignificant_zeros: true
         unit: Ft
     format:
-      delimiter: ! ' '
+      delimiter: " "
       precision: 2
-      separator: ! ','
+      separator: ","
       significant: true
       strip_insignificant_zeros: true
     human:
       decimal_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
-          billion: Milliárd
-          million: Millió
-          quadrillion: Kvadrillió
-          thousand: Ezer
-          trillion: Trillió
+          billion: milliárd
+          million: millió
+          quadrillion: billiárd
+          thousand: ezer
+          trillion: billió
           unit: ''
       format:
         delimiter: ''
@@ -163,7 +167,7 @@ hu:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           byte:
             one: bájt
@@ -180,20 +184,13 @@ hu:
         delimiter: ''
   support:
     array:
-      last_word_connector: ! ' és '
-      two_words_connector: ! ' és '
-      words_connector: ! ', '
+      last_word_connector: " és "
+      two_words_connector: " és "
+      words_connector: ", "
   time:
     am: de.
     formats:
-      default: ! '%Y. %b %e., %H:%M'
-      long: ! '%Y. %B %e., %A, %H:%M'
-      short: ! '%b %e., %H:%M'
+      default: "%Y. %b %e., %H:%M"
+      long: "%Y. %B %e., %A, %H:%M"
+      short: "%b %e., %H:%M"
     pm: du.
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors

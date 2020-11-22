@@ -1,4 +1,9 @@
+---
 th:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'ไม่ผ่านการตรวจสอบ: %{errors}'
   date:
     abbr_day_names:
     - อา
@@ -9,7 +14,7 @@ th:
     - ศ
     - ส
     abbr_month_names:
-    -
+    - 
     - ม.ค.
     - ก.พ.
     - มี.ค.
@@ -31,11 +36,11 @@ th:
     - ศุกร์
     - เสาร์
     formats:
-      default: ! '%d-%m-%Y'
-      long: ! '%d %B %Y'
-      short: ! '%d %b'
+      default: "%d-%m-%Y"
+      long: "%d %B %Y"
+      short: "%d %b"
     month_names:
-    -
+    - 
     - มกราคม
     - กุมภาพันธ์
     - มีนาคม
@@ -59,22 +64,22 @@ th:
       about_x_years: ประมาณ %{count} ปี
       almost_x_years: เกือบ %{count} ปี
       half_a_minute: ครึ่งนาที
-      less_than_x_minutes: น้อยกว่า %{count} นาที
       less_than_x_seconds: น้อยกว่า %{count} วินาที
+      less_than_x_minutes: น้อยกว่า %{count} นาที
       over_x_years: มากกว่า %{count} ปี
-      x_days: ! '%{count} วัน'
-      x_minutes: ! '%{count} นาที'
-      x_months: ! '%{count} เดือน'
-      x_seconds: ! '%{count} วินาที'
+      x_seconds: "%{count} วินาที"
+      x_minutes: "%{count} นาที"
+      x_days: "%{count} วัน"
+      x_months: "%{count} เดือน"
     prompts:
-      day: วัน
-      hour: ชั่วโมง
-      minute: นาที
-      month: เดือน
       second: วินาที
+      minute: นาที
+      hour: ชั่วโมง
+      day: วัน
+      month: เดือน
       year: ปี
-  errors: &errors
-    format: ! '%{attribute} %{message}'
+  errors:
+    format: "%{attribute} %{message}"
     messages:
       accepted: ต้องถูกยอมรับ
       blank: ต้องไม่เว้นว่างเอาไว้
@@ -92,13 +97,12 @@ th:
       not_a_number: ไม่ใช่ตัวเลข
       not_an_integer: ไม่ใช่จำนวนเต็ม
       odd: ต้องเป็นจำนวนคี่
-      record_invalid: ! 'ไม่ผ่านการตรวจสอบ: %{errors}'
       taken: ถูกใช้ไปแล้ว
       too_long: ยาวเกินไป (ต้องไม่เกิน %{count} ตัวอักษร)
       too_short: สั้นเกินไป (ต้องยาวกว่า %{count} ตัวอักษร)
       wrong_length: มีความยาวไม่ถูกต้อง (ต้องมีความยาว %{count} ตัวอักษร)
     template:
-      body: ! 'โปรดตรวจสอบข้อมูลในช่องต่อไปนี้:'
+      body: 'โปรดตรวจสอบข้อมูลในช่องต่อไปนี้:'
       header: พบข้อผิดพลาด %{count} ประการ ทำให้ไม่สามารถบันทึก%{model}ได้
   helpers:
     select:
@@ -110,22 +114,22 @@ th:
   number:
     currency:
       format:
-        delimiter: ! ','
-        format: ! '%n %u'
+        delimiter: ","
+        format: "%n %u"
         precision: 2
-        separator: .
+        separator: "."
         significant: false
         strip_insignificant_zeros: false
         unit: บาท
     format:
-      delimiter: ! ','
+      delimiter: ","
       precision: 3
-      separator: .
+      separator: "."
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           billion: พันล้าน
           million: ล้าน
@@ -139,7 +143,7 @@ th:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           byte: ไบต์
           gb: จิกะไบต์
@@ -154,20 +158,13 @@ th:
         delimiter: ''
   support:
     array:
-      last_word_connector: ! ', และ '
-      two_words_connector: ! ' และ '
-      words_connector: ! ', '
+      last_word_connector: ", และ "
+      two_words_connector: " และ "
+      words_connector: ", "
   time:
     am: ก่อนเที่ยง
     formats:
-      default: ! '%a %d %b %Y %H:%M:%S %z'
-      long: ! '%d %B %Y %H:%M น.'
-      short: ! '%d %b %H:%M น.'
+      default: "%a %d %b %Y %H:%M:%S %z"
+      long: "%d %B %Y %H:%M น."
+      short: "%d %b %H:%M น."
     pm: หลังเที่ยง
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors
